@@ -11,3 +11,12 @@ In this example the flow is:
 4. The downloaded script contains `#!/bin/bash` shebang so it will be interpreted with /bin/bash. The script leverages `FastCli` to run EOS commands from inside the bash script to get switch's current version and switch's SystemMac
 5. By calling the exact same URL that generates the dynamic switch configs detailed in Example2 (and thus passing the SystemMAC obtained in previous step in the curl request) the switch gets its config from the dynconfig Python Flask program and writes it to its startup-config
 6. The switch compares the switch's current version against the desired one. If different, the switch downloads the desired EOS version from the given URL writing it to flash: and with a given name. Finally it configures the switch to boot system flash from it
+
+This is how the switch downloads the upgandconfig.sh script served by nginx
+![script image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/script.png)
+
+The command ` ` in the script makes the switch download the desired EOS version (if different than current)
+![swi image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/swi.png)
+
+Due to `/bin/curl -o "/mnt/flash/startup-config" -H "X-Arista-SystemMAC: $SYSTEMMAC" $CONFIG_URL` command in the script this is how the switch downloads it's configuration. Note that the script does not need to pass the rest of X-Arista-* http headers. Example2 shows how the config is dynamically generated.
+![config image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/config.png)
