@@ -1,0 +1,43 @@
+subnet 10.34.0.0 netmask 255.255.255.0 {
+	range 10.34.0.101 10.34.0.150;
+	option domain-name-servers 10.34.0.254;
+	option subnet-mask 255.255.255.0;
+	option routers 10.34.0.1;
+        option bootfile-name "http://10.34.0.2/ztp/bootstrap";
+}
+
+host vlab11 {
+	option dhcp-client-identifier 50:54:00:00:11:11;
+	fixed-address 10.34.0.11;
+	option host-name vlab11;
+}
+
+host vlab12 {
+	option dhcp-client-identifier 50:54:00:00:12:12;
+	fixed-address 10.34.0.12;
+	option host-name vlab12;
+}
+
+host vlab21 {
+	option dhcp-client-identifier 50:54:00:00:21:21;
+	fixed-address 10.34.0.21;
+	option host-name vlab21;
+}
+
+host vlab22 {
+	option dhcp-client-identifier 50:54:00:00:22:22;
+	fixed-address 10.34.0.22;
+	option host-name vlab22;
+}
+
+host vlab31 {
+	option dhcp-client-identifier 50:54:00:00:31:31;
+	fixed-address 10.34.0.31;
+	option host-name vlab31;
+}
+
+host vlab32 {
+	option dhcp-client-identifier 50:54:00:00:32:32; 
+	fixed-address 10.34.0.32;
+	option host-name vlab32;
+}
