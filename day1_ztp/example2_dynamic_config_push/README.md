@@ -19,7 +19,8 @@ This is how this is seen on the wire
 (REQRESPDYN.png)
 
 Running the Python Flask program can be done by:
-`
+
+```
 export FLASK_APP=server.py
 flask run --host=10.34.0.254 --port=8080                                                                  
  * Serving Flask app "server.py"
@@ -28,9 +29,7 @@ flask run --host=10.34.0.254 --port=8080
    Use a production WSGI server instead.
  * Debug mode: off
  * Running on http://10.34.0.254:8080/ (Press CTRL+C to quit)
-`
+```
 
 For testing the Python Flask program, you could make artificial requests by using curl and passing the X-Arista-SystemMAC of your choice by running:
-`
-curl -H "X-Arista-SystemMAC: 52:54:00:00:11:11" http://10.34.0.254:8080/dynconfig
-`
+`curl -H "X-Arista-SystemMAC: 52:54:00:00:11:11" http://10.34.0.254:8080/dynconfig`
