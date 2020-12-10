@@ -1,6 +1,6 @@
 # ZTP Cloudvision
 
-This example just shows how easy is to bind the switches to Cloudvision. Note that this examples just registers the switch in Cloudvision and does not push any config to the switch (that will be seen in day3 examples)
+This example just shows how easy it is to bind the switches to Cloudvision. Note that this example just registers the switch in Cloudvision and does not push any config to the switch (that will be seen in day3 examples)
 
 In this example the flow is:
 1. Switches in ZTP mode make DHCP requests
