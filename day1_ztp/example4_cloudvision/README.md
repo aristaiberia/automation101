@@ -9,4 +9,4 @@ In this example the flow is:
 4. As a result of script execution the switch is automatically registered in Cloudvision as can be seen below
 
 ![Request Response image]
-(inventory.png)
+(https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example4_cloudvision/inventory.png)

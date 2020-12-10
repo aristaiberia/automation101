@@ -16,7 +16,7 @@ In this example the flow is:
 This is how this is seen on the wire
 
 ![Request Response image]
-(REQRESPDYN.png)
+(https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example2_dynamic_config_push/REQRESPDYN.png)
 
 Running the Python Flask program can be done by:
 
