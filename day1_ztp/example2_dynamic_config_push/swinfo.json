@@ -1,0 +1,62 @@
+{
+  "50:54:00:00:11:11":
+    {
+      "hostname": "vlab11",
+      "floor": "1",
+      "data_vlan": "101",
+      "voice_vlan": "102",
+      "corp_vlan": "103",
+      "guest_vlan": "104",
+      "management_ip": "10.34.0.11/24"
+    },
+  "50:54:00:00:12:12":
+    {
+      "hostname": "vlab12",
+      "floor": "1",
+      "data_vlan": "101",
+      "voice_vlan": "102",
+      "corp_vlan": "103",
+      "guest_vlan": "104",
+      "management_ip": "10.34.0.12/24"
+    },
+  "50:54:00:00:21:21":
+    {
+      "hostname": "vlab21",
+      "floor": "2",
+      "data_vlan": "201",
+      "voice_vlan": "202",
+      "corp_vlan": "203",
+      "guest_vlan": "204",
+      "management_ip": "10.34.0.21/24"
+    },
+  "50:54:00:00:22:22":
+    {
+      "hostname": "vlab22",
+      "floor": "2",
+      "data_vlan": "201",
+      "voice_vlan": "202",
+      "corp_vlan": "203",
+      "guest_vlan": "204",
+      "management_ip": "10.34.0.22/24"
+    },
+  "50:54:00:00:31:31":
+    {
+      "hostname": "vlab31",
+      "floor": "3",
+      "data_vlan": "301",
+      "voice_vlan": "302",
+      "corp_vlan": "303",
+      "guest_vlan": "304",
+      "management_ip": "10.34.0.31/24"
+    },
+  "50:54:00:00:32:32":
+    {
+      "hostname": "vlab32",
+      "floor": "3",
+      "data_vlan": "301",
+      "voice_vlan": "302",
+      "corp_vlan": "303",
+      "guest_vlan": "304",
+      "management_ip": "10.34.0.32/24"
+    }
+}
