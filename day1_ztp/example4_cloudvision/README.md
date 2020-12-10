@@ -8,5 +8,4 @@ In this example the flow is:
 3. The switch downloads the script and executes it. There is no prior configuration done in Cloudvision. Cloudvision serves that URL by default 
 4. As a result of script execution the switch is automatically registered in Cloudvision as can be seen below
 
-![Request Response image]
-(https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example4_cloudvision/inventory.png)
+![Request Response image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example4_cloudvision/inventory.png)
