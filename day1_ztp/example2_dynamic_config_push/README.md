@@ -15,7 +15,7 @@ In this example the flow is:
 
 This is how this is seen on the wire
 
-![Request Response image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example2_dynamic_config_push/REQRESPDYN.png)
+![Request Response image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example2_dynamic_config_push/images/REQRESPDYN.png)
 
 Running the Python Flask program can be done by:
 
@@ -31,4 +31,4 @@ flask run --host=10.34.0.254 --port=8080
 ```
 
 For testing the Python Flask program, you could make artificial requests by using curl and passing the X-Arista-SystemMAC of your choice by running:
-`curl -H "X-Arista-SystemMAC: 52:54:00:00:11:11" http://10.34.0.254:8080/dynconfig`
+`curl -H "X-Arista-SystemMAC: 50:54:00:00:11:11" http://10.34.0.254:8080/dynconfig`

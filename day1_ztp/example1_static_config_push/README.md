@@ -6,12 +6,14 @@ In this example:
 3. The switch downloads the content specified in the Bootfilename URL (each switch will download its config from the given URL)
 4. To serve the content (switch config) in the given URLs this example uses nginx webserver running the provided configuration (nginx.conf)
 
-Switch will use System MAC address as ClientID in DHCP request as seen below
+Switch will use System MAC address as ClientID in DHCP request as seen below:
 
-![systemmac](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example1_static_config_push/systemmac.png)
+![systemmac](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example1_static_config_push/images/systemmac.png)
 
-![discoveroffer](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example1_static_config_push/discoveroffer.png)
+DHCP discover and offer:
 
-So each switch will request the URL served in Bootfilename DHCP parameter containing its configuration (different URL for each switch)
+![discoveroffer](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example1_static_config_push/images/discoveroffer.png)
 
-![reqresp](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example1_static_config_push/reqresp.png)
+So each switch will request the URL served in Bootfilename DHCP parameter containing its configuration (different URL for each switch):
+
+![reqresp](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example1_static_config_push/images/reqresp.png)

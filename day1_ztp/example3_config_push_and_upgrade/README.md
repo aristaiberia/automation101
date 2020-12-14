@@ -13,10 +13,10 @@ In this example the flow is:
 6. The switch compares the switch's current version against the desired one. If different, the switch downloads the desired EOS version from the given URL writing it to flash: and with a given name. Finally it configures the switch to boot system flash from it
 
 This is how the switch downloads the upgandconfig.sh script served by nginx
-![script image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/script.png)
+![script image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/images/script.png)
 
 The command `/bin/FastCli -p 15 -c "copy $TARGET_URL flash:$TARGET_FILENAME"` in the script makes the switch download the desired EOS version (if different than current). Truncated output as it is a large response with EOS swi image.
-![swi image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/swi.png)
+![swi image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/images/swi.png)
 
 Due to `/bin/curl -o "/mnt/flash/startup-config" -H "X-Arista-SystemMAC: $SYSTEMMAC" $CONFIG_URL` command in the script this is how the switch downloads it's configuration. Note that the script does not need to pass the rest of X-Arista-* http headers. Example2 shows how the config is dynamically generated.
-![config image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/config.png)
+![config image](https://github.com/aristaiberia/automation101/blob/main/day1_ztp/example3_config_push_and_upgrade/images/config.png)
