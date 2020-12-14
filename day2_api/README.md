@@ -1,2 +1,2 @@
-# Automation 101
-Day 2 basic API automation examples
+# Basic API examples
+Examples about API explorer, curl, postman, python and X509 certificate authentication
