@@ -4,8 +4,10 @@ Examples about embeded API explorer tool in EOS and in Cloudvision.
 EOS devices and Cloudvision have an embedded tool to explore their API.
 
 * EOS API
+
 EOS API is disabled by default.
 It can be enabled by:
+
 ```
 management api http-commands
    no shutdown
@@ -44,7 +46,7 @@ Management1 : https://10.34.0.31:443
 ```
 
 EOS API explorer can then be accesed by API pointing a browser to the API URLs. Then you can input EOS commands in the commands window, send them to the API and see all the details on how exactly the API call to run these commands works. IN the request viewer the body of the API request is shown. The response viewer shows how exactly the API response body does look like. Note also that the same API request can contain more than one command. The image shows the example for `show version` command:
-![eosapiexplorer](https://github.com/aristaiberia/automation101/blob/main/day2_api/example1_apiexplorer/images/eospiexplorer.png)
+![eosapiexplorer](https://github.com/aristaiberia/automation101/blob/main/day2_api/example1_apiexplorer/images/eosapiexplorer.png)
 
 * CVP API
 
