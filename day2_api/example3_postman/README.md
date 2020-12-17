@@ -9,7 +9,7 @@ A handy Postman feature is environments, by which you can define a set of variab
 
 The image below shows the Postman environment used for the tests
 
-![environ](https://github.com/aristaiberia/automation101/blob/main/day2_api/example3_postman/images/EOS.png)
+![environ](https://github.com/aristaiberia/automation101/blob/main/day2_api/example3_postman/images/ENVIRON.png)
 
 EOS API example call that uses the variables previously defined in the Postman environment:
 
@@ -17,6 +17,6 @@ EOS API example call that uses the variables previously defined in the Postman e
 
 CVP API example call that uses the variables previously defined in the Postman environment:
 
-![eos](https://github.com/aristaiberia/automation101/blob/main/day2_api/example3_postman/images/EOS.png)
+![CVP](https://github.com/aristaiberia/automation101/blob/main/day2_api/example3_postman/images/CVP.png)
 
 Note here that all calls that leverage cookie based authentication should first call authentication to obtain teh cookie.
