@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "d97e108b-e6fa-4013-b195-bab00a2d3aa3",
+		"name": "ARISTA_CVP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"{{CVP_USER}}\",\n  \"password\": \"{{CVP_PASS}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{CVP_IP}}/cvpservice/login/authenticate.do",
+					"protocol": "https",
+					"host": [
+						"{{CVP_IP}}"
+					],
+					"path": [
+						"cvpservice",
+						"login",
+						"authenticate.do"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETCVPINFO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{CVP_IP}}/cvpservice/cvpInfo/getCvpInfo.do",
+					"protocol": "https",
+					"host": [
+						"{{CVP_IP}}"
+					],
+					"path": [
+						"cvpservice",
+						"cvpInfo",
+						"getCvpInfo.do"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETUSERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{CVP_IP}}/cvpservice/user/getUsers.do?startIndex=0&endIndex=100",
+					"protocol": "https",
+					"host": [
+						"{{CVP_IP}}"
+					],
+					"path": [
+						"cvpservice",
+						"user",
+						"getUsers.do"
+					],
+					"query": [
+						{
+							"key": "startIndex",
+							"value": "0"
+						},
+						{
+							"key": "endIndex",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

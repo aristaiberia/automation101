@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "79a14f87-c366-473a-90e2-fee10be70ed5",
+		"name": "ARISTA_SWITCH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RUNCMDS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"runCmds\",\n  \"params\": {\n    \"format\": \"json\",\n    \"timestamps\": false,\n    \"autoComplete\": false,\n    \"expandAliases\": false,\n    \"cmds\": [\n      \"show version\"\n    ],\n    \"version\": 1\n  },\n  \"id\": \"EapiExplorer-1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{SWITCH_USER}}:{{SWITCH_PASS}}@{{SWITCH_IP}}/command-api",
+					"protocol": "https",
+					"auth": {
+						"user": "{{SWITCH_USER}}",
+						"password": "{{SWITCH_PASS}}"
+					},
+					"host": [
+						"{{SWITCH_IP}}"
+					],
+					"path": [
+						"command-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RUNCMDS_COOKIEAUTH",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"runCmds\",\n  \"params\": {\n    \"format\": \"json\",\n    \"timestamps\": false,\n    \"autoComplete\": false,\n    \"expandAliases\": false,\n    \"cmds\": [\n      \"show version\"\n    ],\n    \"version\": 1\n  },\n  \"id\": \"EapiExplorer-1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{SWITCH_IP}}/command-api",
+					"protocol": "https",
+					"host": [
+						"{{SWITCH_IP}}"
+					],
+					"path": [
+						"command-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{SWITCH_USER}}\",\n  \"password\": \"{{SWITCH_PASS}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{SWITCH_IP}}/login",
+					"protocol": "https",
+					"host": [
+						"{{SWITCH_IP}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
