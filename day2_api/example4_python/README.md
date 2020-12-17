@@ -45,7 +45,7 @@ Out[3]:
    'architecture': 'i686'}])
 ```
 
-A part from just `show` commands, configuration can be done too, for instance, the next example changes ethernet1 description
+Apart from just `show` commands, configuration can be done too, for instance, the next example changes ethernet1 description
 
 ```
 In [6]: s.run(["enable", "show interfaces ethernet 1 description"])
@@ -82,7 +82,7 @@ Out[8]:
 CVP version is 2020.1.0
 ```
 
-`cvprac_cvpinfo.py` is as well an example of calling CVP API with a very similar result as `cvpinfo.py`. However there is an important difference between the two. It is that `cvprac_cvpinfo.py` does use [cvprac](https://github.com/aristanetworks/cvprac) RESTful API client for CVP. In working with APIs is common that API wrapers offer a level of abstraction so it is easier to make the calls "abstracting" the details (ie, note that unlike `cvpinfo.py` no API URLs appear in `cvprac_cvpinfo.py`)
+`cvprac_cvpinfo.py` is as well an example of calling CVP API with a very similar result as `cvpinfo.py`. However there is an important difference between the two. It is that `cvprac_cvpinfo.py` does use [cvprac](https://github.com/aristanetworks/cvprac) RESTful API client for CVP. Working with APIs is common that API wrappers offer a level of abstraction so it is easier to make the calls "abstracting" the details (ie, note that unlike `cvpinfo.py` no API URLs appear in `cvprac_cvpinfo.py`)
 
 ```
 # ./cvprac_cvpinfo.py 
