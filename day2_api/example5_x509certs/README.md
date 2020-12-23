@@ -98,7 +98,6 @@ management api http-commands
    protocol https ssl profile SSL1
    no shutdown
 vlab31#show running-config section ssl
-username admin privilege 15 role network-admin secret sha512 $6$zg05nuSqCeznzinp$AAMXHmxyacZ0qFxKtsSTLnssLMD8zt29KvBg558jrgPULPfe9WrwfaU07EeWQrw22ud.h5S8e5cR0XwWwZyec0
 !
 management api http-commands
    protocol https ssl profile SSL1
@@ -138,7 +137,7 @@ root@control /lab/api/vault # ls *crt *csr *key
 ca.crt  client.crt  client.csr  client.key  clientjson.csr
 ```
 
-API calls can now be done from the client for instance like in `eos1_cert.sh` that makes an EOS API in which:
+API calls can now be done from the client for instance like in `eos1_cert.sh` that makes an EOS API in which no cleartext passwords are used at all, instead X509 Certificates are used for mutual authentication:
 * When receiving the API call, the switch authenticates the user making the API call with the Client certificate
 * The client Authenticates the switch that is connectecting to with the Switch certificate
 
