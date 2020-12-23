@@ -111,7 +111,7 @@ vlab31#
 
 And now you can see as well in the Vault CA that the switch cert has been generated
 
-![switchcert](https://github.com/aristaiberia/automation101/blob/main/day2_api/example5_x509certs/images/switch.png)
+![switchcert](https://github.com/aristaiberia/automation101/blob/main/day2_api/example5_x509certs/images/switchcert.png)
 
 Provided that you make your browser trust Vault CA it will trust the certificate that the switch uses for API as seen in the image below.
 
