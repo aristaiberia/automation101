@@ -60,7 +60,7 @@ PLAY RECAP *********************************************************************
 10.34.0.31                 : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ```
 
-To appy the configurations just run the playbook, for instance:
+To apply the configurations just run the playbook, for instance:
 
 ```
 # ansible-playbook --limit leaves eos_config.yaml
