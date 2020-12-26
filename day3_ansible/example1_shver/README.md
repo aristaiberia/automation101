@@ -59,7 +59,7 @@ ansible-playbook -i hosts showversion.yml  11.21s user 3.13s system 115% cpu 12.
 By using `--limit` you can limit the devices or groups over which the playbook will act.
 
 ```
-root@control /lab/ansible/eos_showversion # ansible-playbook --limit floor2 -i hosts showversion.yml
+# ansible-playbook --limit floor2 -i hosts showversion.yml
 
 PLAY [all] ********************************************************************************************************************************
 
@@ -79,9 +79,7 @@ PLAY RECAP *********************************************************************
 10.34.0.21                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 10.34.0.22                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
-root@control /lab/ansible/eos_showversion # 
-root@control /lab/ansible/eos_showversion # 
-root@control /lab/ansible/eos_showversion # ansible-playbook --limit 10.34.0.31 -i hosts showversion.yml
+# ansible-playbook --limit 10.34.0.31 -i hosts showversion.yml
 
 PLAY [all] ********************************************************************************************************************************
 
