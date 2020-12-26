@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: get eos version and hostname
+      eos_command:
+        commands:
+          - show hostname | json 
+          - show version | json
+      register: output
+    - name: debugs
+      debug: 
+        #var: output
+        msg: Switch {{ output["stdout"][0]["hostname"] }} runs EOS version {{ output["stdout"][1]["version"] }}
