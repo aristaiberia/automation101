@@ -1,0 +1,11 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: ping host
+      eos_command:
+        commands:
+          - ping vrf {{ vrf }} {{ ip }} repeat 5
+      register: output
+      failed_when: "'5 received' not in output[\"stdout\"][0]"
