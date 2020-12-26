@@ -1,0 +1,19 @@
+alias sip show ip interface brief
+logging host 10.34.0.254 514
+hostname {{ hostname }}
+ip name-server 10.34.0.254
+username admin privilege 15 role network-admin secret sha512 $6$zg05nuSqCeznzinp$AAMXHmxyacZ0qFxKtsSTLnssLMD8zt29KvBg558jrgPULPfe9WrwfaU07EeWQrw22ud.h5S8e5cR0XwWwZyec0
+vlan {{ data_vlan }}
+   name {{ floor }}_floor_data
+vlan {{ voice_vlan }}
+   name {{ floor }}_floor_voice
+vlan {{ corp_vlan }}
+   name {{ floor }}_floor_corp_ssid
+vlan {{ guest_vlan }}
+   name {{ floor }}_floor_guest_ssid
+interface Management1
+   ip address {{ ansible_host }}/24
+ip route 0.0.0.0/0 10.34.0.1
+management api http-commands
+   no shutdown
+end

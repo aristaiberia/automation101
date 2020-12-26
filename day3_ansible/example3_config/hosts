@@ -1,0 +1,51 @@
+[spines]
+10.34.0.1
+10.34.0.2
+
+[leaves:children]
+floor1
+floor2
+floor3
+
+[floor1]
+10.34.0.11 hostname=vlab11
+10.34.0.12 hostname=vlab12
+
+[floor1:vars]
+floor=1
+data_vlan=101
+voice_vlan=102
+corp_vlan=103
+guest_vlan=104
+
+[floor2]
+10.34.0.21 hostname=vlab21
+10.34.0.22 hostname=vlab22
+
+[floor2:vars]
+floor=2
+data_vlan=201
+voice_vlan=202
+corp_vlan=203
+guest_vlan=204
+
+[floor3]
+10.34.0.31 hostname=vlab31
+10.34.0.32 hostname=vlab32
+
+[floor3:vars]
+floor=3
+data_vlan=301
+voice_vlan=302
+corp_vlan=303
+guest_vlan=304
+
+[all:vars]
+ansible_network_os=eos
+ansible_connection=network_cli
+ansible_become=yes
+ansible_become_method=enable
+ansible_network_os=eos
+ansible_user=admin
+ansible_password=abc123
+ansible_python_interpreter=/usr/bin/python

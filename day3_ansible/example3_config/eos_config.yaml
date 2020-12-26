@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: push config based on template
+      eos_config:
+        src: config.j2
+        save_when: changed
