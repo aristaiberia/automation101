@@ -1,0 +1,25 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: setup po12
+      eos_lag_interfaces:
+        config:
+          - name: port-Channel 12
+            members:
+              - member: Ethernet1
+                mode: active
+              - member: Ethernet2
+                mode: active
+    - name: allowed vlans
+      eos_l2_interfaces:
+        config:
+          - name: port-Channel 12
+            trunk:
+              trunk_allowed_vlans: "{{ data_vlan }},{{ voice_vlan }},{{ corp_vlan }},{{ guest_vlan }}"
+    - name: trunk po12
+      eos_config:
+        lines:
+          - switchport mode trunk
+        parents: interface port-Channel12
