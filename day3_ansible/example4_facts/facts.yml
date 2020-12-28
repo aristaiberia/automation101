@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: gather facts
+      eos_facts:
+        gather_subset:
+          - "!all"
+          - "!min"
+        gather_network_resources:
+          - interfaces
+          - vlans
+      register: output
+    - name: debugs
+      debug: 
+        var: output
