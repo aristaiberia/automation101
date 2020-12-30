@@ -1,0 +1,28 @@
+all:
+  children:
+    spines:
+      hosts:
+        10.34.0.101:
+        10.34.0.102:
+    leaves:
+      children:
+        floor1:
+          hosts:
+            10.34.0.11:
+            10.34.0.12:
+        floor2:
+          hosts:
+            10.34.0.21:
+            10.34.0.22:
+        floor3:
+          hosts:
+            10.34.0.31:
+            10.34.0.32:
+  vars:
+    ansible_network_os: eos
+    ansible_connection: network_cli
+    ansible_become: yes
+    ansible_become_method: enable
+    ansible_user: admin
+    ansible_password: abc123
+    ansible_python_interpreter: /usr/bin/python
