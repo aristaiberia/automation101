@@ -16,7 +16,7 @@ Before using vault the relevant section of the `hosts` inventory file regarding 
     ansible_password: abc123
 ```
 
-Now we use our `strgen.sh` script that uses ànsible-vault`
+Now we use our `strgen.sh` script that uses `ansible-vault`
 
 ```
 # ./strgen.sh
