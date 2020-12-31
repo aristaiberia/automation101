@@ -1,0 +1,26 @@
+{
+  "floor1_config":
+    {
+      "floor": "1",
+      "data_vlan": "101",
+      "voice_vlan": "102",
+      "corp_vlan": "103",
+      "guest_vlan": "104"
+    },
+  "floor2_config":
+    {
+      "floor": "2",
+      "data_vlan": "201",
+      "voice_vlan": "202",
+      "corp_vlan": "203",
+      "guest_vlan": "204"
+    },
+  "floor3_config":
+    {
+      "floor": "3",
+      "data_vlan": "301",
+      "voice_vlan": "302",
+      "corp_vlan": "303",
+      "guest_vlan": "304"
+    }
+}

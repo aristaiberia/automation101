@@ -1,0 +1,22 @@
+LAB:
+  parent_container: Tenant
+  configlets:
+    - global_config
+LEAVES:
+  parent_container: LAB
+  configlets:
+    - leaves_config
+SPINES:
+  parent_container: LAB
+FLOOR1:
+  parent_container: LEAVES
+  configlets:
+    - floor1_config
+FLOOR2:
+  parent_container: LEAVES
+  configlets:
+    - floor2_config
+FLOOR3:
+  parent_container: LEAVES
+  configlets:
+    - floor3_config

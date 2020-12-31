@@ -1,0 +1,132 @@
+---
+- name: END-TO-END Network Configuration
+  hosts: cvp
+  connection: local
+  gather_facts: no
+  collections:
+    - arista.cvp
+  tasks:
+
+    - name: CVFACTS
+      cv_facts:
+      register: cvp_facts
+
+    - name: CREATE GLOBAL CONFIGLETS
+      vars:
+        config: "{{ lookup('template', 'templates/global.j2') }}"
+        configlets: 
+          global_config: "{{ config }}"
+      cv_configlet:
+        cvp_facts: "{{cvp_facts.ansible_facts}}"
+        configlets: "{{ configlets }}"
+
+    - name: CREATE LEAVES CONFIGLETS
+      vars:
+        config: "{{ lookup('template', 'templates/leaves.j2') }}"
+        configlets: 
+          leaves_config: "{{ config }}"
+      cv_configlet:
+        cvp_facts: "{{cvp_facts.ansible_facts}}"
+        configlets: "{{ configlets }}"
+
+    - name: LOAD PER-FLOOR INFO
+      include_vars:
+        file: vars/floors.json
+        name: floors
+
+    - name: CREATE PER-FLOOR CONFIGLETS
+      vars:
+        config: "{{ lookup('template', 'templates/floors.j2', template_vars=item.value) }}"
+        clets:
+          - key: "{{ item.key }}"
+            value: "{{ config }}"
+        r: "{{ clets|items2dict }}"
+      cv_configlet:
+        cvp_facts: "{{cvp_facts.ansible_facts}}"
+        configlets: "{{ r }}"
+      loop: "{{ lookup('dict', floors) }}"
+
+    - name: LOAD PER-SWITCH INFO
+      include_vars:
+        file: vars/switches.json
+        name: switches
+
+    - name: CREATE PER-SWITCH CONFIGLETS
+      vars:
+        config: "{{ lookup('template', 'switches.j2', template_vars=item.value) }}"
+        clets:
+          - key: "{{ item.value.hostname }}_config"
+            value: "{{ config }}"
+        r: "{{ clets|items2dict }}"
+      cv_configlet:
+        cvp_facts: "{{cvp_facts.ansible_facts}}"
+        configlets: "{{ r }}"
+      loop: "{{ lookup('dict', switches) }}"
+
+    - name: LOAD EMPTY CONTAINERS INFO
+      include_vars:
+        file: vars/containers_empty.yml
+        name: containers_empty
+
+    - name: CREATE EMPTY CONTAINERS
+      cv_container:
+        topology: "{{containers_empty}}"
+        cvp_facts: "{{cvp_facts.ansible_facts}}"
+        mode: merge
+
+    - name: REFRESH FACTS
+      cv_facts:
+      register: cvp_facts
+
+    - name: ASSIGN PER-SWITCH CONFIGLET
+      vars:
+        switch: "{{ item.value.hostname }}"
+        container: "FLOOR{{ switch[4:5] }}"
+        configlet: "{{ switch }}_config"
+        devs_inventory:
+          - key: "{{ switch }}"
+            value:
+              name: "{{ switch }}"
+              configlets:
+                - "{{ configlet }}"
+              imageBundle: ""
+              parentContainerName: "{{ container }}"
+        assoc: "{{ devs_inventory|items2dict }}"
+      cv_device:
+        devices: "{{ assoc }}"
+        cvp_facts: "{{cvp_facts.ansible_facts}}"
+        configlet_mode: merge
+      loop: "{{ lookup('dict', switches) }}"
+
+    - name: CVFACTS
+      cv_facts:
+      register: cvp_facts
+
+    - name: RUN TASKS TO ASSIGN PER-SWITCH CONFIG AND MOVE SWITCHES - WAIT FOR RELOAD
+      vars:
+        tareas: "{{cvp_facts.ansible_facts.tasks}}"
+      cv_task:
+        tasks: "{{tareas}}"
+        # wait for 6min for reload
+        wait: 360
+
+    - name: LOAD CONTAINERS INFO
+      include_vars:
+        file: vars/containers.yml
+        name: containers
+
+    - name: APPLY CONFIGLETS TO CONTAINERS
+      cv_container:
+        topology: '{{containers}}'
+        cvp_facts: '{{cvp_facts.ansible_facts}}'
+        mode: merge
+
+    - name: CVP FACTS
+      cv_facts:
+      register: cvp_facts
+
+    - name: RUN TASKS TO ASSIGN CONFIGLETS TO CONTAINERS
+      vars:
+        tareas: "{{cvp_facts.ansible_facts.tasks}}"
+      cv_task:
+        tasks: "{{tareas}}"

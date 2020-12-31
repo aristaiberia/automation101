@@ -1,0 +1,15 @@
+hostname {{ hostname }}
+!
+interface Management1
+   ip address {{ management_ip }}
+!
+ip route 0.0.0.0/0 10.34.0.1
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=10.34.0.2:9910 -cvcompression=gzip -ingestauth=key,ingest123 -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=default -taillogs
+   no shutdown
+!
+username cvpadmin privilege 15 role network-admin secret sha512 $6$jMp4GsfMGBHL7WjY$J3DpM7gTdkB0pbQcZLOG51rPE3V9oJmOVcb76xqDJrCcUrH6S9X8tndtpfsoS91.Xk7JA4/oayuIInZOY/QOB.
+!
+management api http-commands
+   no shutdown

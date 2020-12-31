@@ -1,0 +1,15 @@
+alias sip show ip interface brief
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -ingestgrpcurl=10.34.0.2:9910 -cvcompression=gzip -ingestauth=key,ingest123 -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -ingestvrf=default -taillogs
+   no shutdown
+!
+logging host 10.34.0.254
+!
+ntp server 10.34.0.254 prefer
+!
+username admin privilege 15 role network-admin secret sha512 $6$zg05nuSqCeznzinp$AAMXHmxyacZ0qFxKtsSTLnssLMD8zt29KvBg558jrgPULPfe9WrwfaU07EeWQrw22ud.h5S8e5cR0XwWwZyec0
+username cvpadmin privilege 15 role network-admin secret sha512 $6$jMp4GsfMGBHL7WjY$J3DpM7gTdkB0pbQcZLOG51rPE3V9oJmOVcb76xqDJrCcUrH6S9X8tndtpfsoS91.Xk7JA4/oayuIInZOY/QOB.
+!
+management api http-commands
+   no shutdown

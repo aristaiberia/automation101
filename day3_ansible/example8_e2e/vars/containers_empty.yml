@@ -1,0 +1,12 @@
+LAB:
+  parent_container: Tenant
+LEAVES:
+  parent_container: LAB
+SPINES:
+  parent_container: LAB
+FLOOR1:
+  parent_container: LEAVES
+FLOOR2:
+  parent_container: LEAVES
+FLOOR3:
+  parent_container: LEAVES
