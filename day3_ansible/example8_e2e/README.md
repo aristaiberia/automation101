@@ -32,7 +32,7 @@ Then the container hierarchy is created. Note that devices are still in the unde
 
 ![containerhierarchy.png](https://github.com/aristaiberia/automation101/blob/main/day3_ansible/example8_e2e/images/containerhierarchy.png)
 
-First per-switch configlets are assigned `at device level`i and switches moved to the corresponding containers, this creates CVP tasks that are also executed by the playbook
+First per-switch configlets are assigned `at device level` and switches moved to the corresponding containers, this creates CVP tasks that are also executed by the playbook
 
 ![assignperswitchconfiglets.png](https://github.com/aristaiberia/automation101/blob/main/day3_ansible/example8_e2e/images/assignperswitchconfiglets.png)
 
@@ -56,7 +56,7 @@ All switches have the expected configuration
 
 And for instance, if we compare config between switches in different floors, as expected, we see that the per-switch config (hostname and management ip address) and per-floor config (vlans) are different meanwhile the rest is equal.
 
-![config.png](https://github.com/aristaiberia/automation101/blob/main/day3_ansible/example8_e2e/images/config.png)
+![configdiff.png](https://github.com/aristaiberia/automation101/blob/main/day3_ansible/example8_e2e/images/configdiff.png)
 
 Here is the output from the Ansible playbook execution:
 
